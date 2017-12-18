@@ -1,0 +1,163 @@
+html {
+  font-size: 16px;
+  line-height: 1.4;
+  background-color: #ffffff;
+  color: #4c4c4c;
+}
+
+div {
+  border: 1px solid red;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+a, p, span, li {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+ol, ul {
+  display: block;
+  margin: 1rem 0;
+}
+
+ul li {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.site-container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+header .site-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #e5e5e5;
+}
+
+.logo .strong {
+  font-weight: bold;
+  color: #4c4c4c;
+}
+
+.logo img {
+  margin-left: 1.5rem;
+  height: 2rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+}
+
+nav .mobile-navigation {
+  display: none;
+}
+
+.main-banner {
+  display: flex;
+  align-items: center;
+  background-color: #e5e5e5;
+}
+
+
+
+.main-banner img {
+  width: 60%;
+  margin: 2rem 1.5rem;
+}
+
+.banner-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.banner-headline h1 {
+  font-size: 2rem;
+}
+
+.banner-headline p {
+  margin: 1.5rem 0;
+}
+
+.banner-headline a {
+  width: 100%;
+  background-color: #4c4c4c;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.information-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+}
+
+.information-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  margin: 2rem 1.5rem;
+}
+
+.information-content img {
+  width: 100%;
+}
+
+.information-content h2 {
+  margin-top: 2rem;
+  font-size: 1.75rem;
+}
+
+.information-content p {
+  margin-top: 1.5rem;
+}
+
+.information-main .citation {
+  font-size: 0.75rem;
+}
+
+.information-items {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.information-item {
+  display: flex;
+  flex-direction: row;
+  /**justify-content: space-between; **/
+/**margin: 1rem 1rem;**/
+}
+
+
+.information-item img {
+  max-width: 35%;
+  height: auto;
+  display: block;
+}
+
+.information-item .item-content {
+  width: 65%;
+}
