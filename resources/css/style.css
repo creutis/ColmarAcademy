@@ -18,8 +18,6 @@ a, p, span, li {
   font-family: 'Raleway', sans-serif;
 }
 
-
-
 ol, ul {
   display: block;
   margin: 1rem 0;
@@ -31,13 +29,12 @@ ul li {
 }
 
 .site-container {
-  width: 1024px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
-header .site-container {
+header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   height: 4rem;
 }
@@ -61,12 +58,27 @@ header .site-container {
 nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   margin-right: 1.5rem;
 }
 
-nav .mobile-navigation {
+.mobile-navigation {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .logo span {
+    display: none;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .mobile-navigation {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .main-banner {
@@ -74,8 +86,6 @@ nav .mobile-navigation {
   align-items: center;
   background-color: #e5e5e5;
 }
-
-
 
 .main-banner img {
   width: 60%;
@@ -86,7 +96,7 @@ nav .mobile-navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column;
+  flex-flow: column;
   margin-right: 2rem;
 }
 
@@ -105,6 +115,31 @@ nav .mobile-navigation {
   padding: 0.5rem 0;
   text-align: center;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-banner {
+    flex-flow: column;
+  }
+
+  .main-banner img {
+    margin: 0 0;
+    width: 100%;
+  }
+
+  .banner-headline {
+    margin: 2rem 1rem;
+  }
+
+  .banner-headline h1 {
+    text-align: center;
+  }
+
+  .banner-headline p {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 
@@ -146,6 +181,18 @@ nav .mobile-navigation {
   font-size: 0.75rem;
 }
 
+/** HIDE LEFT COLUMN FOR MOBILE **/
+@media only screen and (max-width: 800px) {
+
+  .two-columns-container {
+    margin: 0 auto;
+  }
+
+  .left-column-container {
+    display: none;
+  }
+}
+
 .right-column-container {
   display: flex;
   flex-direction: column;
@@ -170,6 +217,10 @@ nav .mobile-navigation {
   display: block;
 }
 
+img.mobile-image {
+  display: none;
+}
+
 .item-content {
   width: 65%;
   margin: 0 1rem;
@@ -177,6 +228,81 @@ nav .mobile-navigation {
 
 .item-content p {
   margin: 0.5rem 0;
+}
+
+#information .right-column-container {
+  border-left: 1px solid #e5e5e5;
+}
+
+#information .right-column-item:first-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#information .right-column-item:nth-child(2n+0) {
+  border-top: 1px solid #e5e5e5;
+}
+
+#thesis .right-column-item:nth-child(2n+1) {
+    background-color: #e5e5e5;
+}
+
+@media only screen and (max-width: 800px) {
+  .right-column-container {
+    width: 100%;
+    margin: 1rem 1rem;
+    border: none;
+  }
+
+  .right-column-item {
+    flex-flow: column;
+    padding: 0 0;
+    background-color: #ffffff;
+    border: none;
+  }
+
+  .right-column-item:nth-child(3n+3) {
+    background-color: #ffffff;
+  }
+
+  #information .right-column-container {
+    border-left: none;
+  }
+
+  #information .right-column-item:first-child {
+    border-bottom: none;
+  }
+
+  #information .right-column-item:nth-child(2n+0) {
+    border-top: none;
+  }
+
+  .right-column-item img {
+    display: none;
+  }
+
+  img.mobile-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .item-content {
+    width: 100%;
+    margin: 2rem 1rem;
+  }
+
+  .item-content h4 {
+    margin: 0 1rem;
+  }
+
+  .item-content p {
+    margin: 0.5rem 1rem;
+  }
+
+  .item-content a {
+    margin: 0 1rem;
+  }
+
 }
 
 .courses-container {
@@ -228,21 +354,45 @@ nav .mobile-navigation {
   margin-right: 1rem;
 }
 
-#information .right-column-container {
-  border-left: 1px solid #e5e5e5;
-}
+@media only screen and (max-width: 800px) {
+  .courses-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+  }
 
-#information .right-column-item:first-child {
-  border-bottom: 1px solid #e5e5e5;
-}
+  .courses-container h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
-#information .right-column-item:nth-child(2n+0) {
-  border-top: 1px solid #e5e5e5;
-}
+  .courses {
+    width: 100%;
+    flex-flow: column;
 
-#thesis .right-column-item:nth-child(2n+1) {
+  }
+
+  .course {
     background-color: #e5e5e5;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem; /* NOTE: This doesn't seem to take */
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .course img {
+    display: none;
+  }
+
+  .course-content h4, p {
+    display: none;
+  }
 }
+
+
 
 footer {
   display: flex;
