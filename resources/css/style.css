@@ -6,7 +6,7 @@ html {
 }
 
 div {
-  /** border: 1px solid red; **/
+  /* border: 1px solid red; */
 }
 
 h1, h2, h3, h4, h5 {
@@ -65,7 +65,8 @@ nav {
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+/* MOBILE: logo and menu */
+@media only screen and (max-width: 480px) {
 
   .logo span {
     display: none;
@@ -117,7 +118,8 @@ nav {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 600px) {
+/* MOBILE: banner section */
+@media only screen and (max-width: 480px) {
   .main-banner {
     flex-flow: column;
   }
@@ -143,9 +145,7 @@ nav {
 }
 
 
-/** REFACTORING **/
-
-
+/* two-columns-container, left-column-container and right-column-container is reused for both #information and #thesis sections */
 .two-columns-container {
   display: flex;
   flex-direction: row;
@@ -158,6 +158,10 @@ nav {
   justify-content: space-between;
   width: 60%;
   margin: 0 1.5rem;
+}
+
+#thesis .mobile-header {
+  display: none;
 }
 
 .left-column-content img {
@@ -181,15 +185,38 @@ nav {
   font-size: 0.75rem;
 }
 
-/** HIDE LEFT COLUMN FOR MOBILE **/
-@media only screen and (max-width: 800px) {
+/** MOBILE: two column container and left column for #information and #thesis **/
+@media only screen and (max-width: 480px) {
 
+  /* Adjust the top margins for the two column container */
   .two-columns-container {
     margin: 0 auto;
   }
 
-  .left-column-container {
+  /* Hide only the information left column */
+  #information .left-column-container {
     display: none;
+  }
+
+  /* Let the left column for thesis fill the whole site-container and adjust the margin */
+  #thesis .left-column-container {
+    width: 100%;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  /* Hide the header and the text for the thesis */
+  #thesis .left-column-content h2, p {
+    display: none;
+  }
+
+  /* Have to specify this precise in order to invalidate the rule above */
+  #thesis .left-column-content h2.mobile-header {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -246,7 +273,12 @@ img.mobile-image {
     background-color: #e5e5e5;
 }
 
-@media only screen and (max-width: 800px) {
+/* MOBILE: right column for #information and #thesis */
+@media only screen and (max-width: 480px) {
+
+  #thesis .right-column-container {
+    display: none;
+  }
   .right-column-container {
     width: 100%;
     margin: 1rem 1rem;
@@ -354,11 +386,13 @@ img.mobile-image {
   margin-right: 1rem;
 }
 
-@media only screen and (max-width: 800px) {
+/* MOBILE: courses section */
+@media only screen and (max-width: 480px) {
   .courses-container {
     width: 100%;
     background-color: #ffffff;
     border-top: 1px solid #e5e5e5;
+    margin-bottom: 1.5rem;
   }
 
   .courses-container h1 {
@@ -369,30 +403,31 @@ img.mobile-image {
   .courses {
     width: 100%;
     flex-flow: column;
-
+    margin: 0 0;
   }
 
   .course {
-    background-color: #e5e5e5;
     width: 100%;
-    margin-left: 1rem;
-    margin-right: 1rem; /* NOTE: This doesn't seem to take */
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
+    margin: 0 0;
+
   }
 
   .course img {
     display: none;
   }
 
+  .course-content {
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-bottom: 0.5rem;
+    background-color: #e5e5e5;
+  }
+
   .course-content h4, p {
     display: none;
   }
 }
-
-
 
 footer {
   display: flex;
@@ -418,66 +453,14 @@ footer .terms span {
   margin-left: 1rem;
 }
 
-/** REFACTORING END
+/* MOBILE: .footer */
+@media only screen and (max-width: 480px) {
+  footer {
+    padding-bottom: 0;
+    border-top: none;
+  }
 
-.information-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 60%;
-  margin: 2rem 1.5rem;
+  footer .terms {
+    display: none;
+  }
 }
-
-.information-content img {
-  width: 100%;
-}
-
-.information-content h2 {
-  margin-top: 2rem;
-  font-size: 1.75rem;
-}
-
-.information-content p {
-  margin-top: 1.5rem;
-}
-
-.information-main .citation {
-  font-size: 0.75rem;
-}
-
-.information-items {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding-top: 1rem;
-  border-left: 1px solid #e5e5e5;
-}
-
-.information-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 1rem;
-  border-bottom: 2px solid #e5e5e5;
-}
-
-.information-item:nth-child(3n+3) {
-  background-color: #e5e5e5;
-}
-
-.information-item img {
-  max-width: 35%;
-  height: auto;
-  display: block;
-}
-
-.information-item .item-content {
-  width: 65%;
-  margin: 0 1rem;
-}
-
-.information-item .item-content p {
-  margin: 0.5rem 0;
-}
-
-/** REFATORING **/
